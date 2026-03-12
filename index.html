@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบเซ็นเงิน - Firebase</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Remix Icons for consistent iconography -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header with app title and navigation buttons -->
+  <header class="main-header">
+    <h1 class="app-title">ระบบเซ็นเงิน (Firebase)</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><button onclick="showSection('dashboard')"><i class="ri-dashboard-line"></i><span>หน้าหลัก</span></button></li>
+        <li><button onclick="showSection('users')"><i class="ri-user-3-line"></i><span>ผู้เซ็น</span></button></li>
+        <li><button onclick="showSection('addDebt')"><i class="ri-file-add-line"></i><span>เซ็นเงิน</span></button></li>
+        <li><button onclick="showSection('payment')"><i class="ri-wallet-3-line"></i><span>ชำระเงิน</span></button></li>
+        <li><button onclick="showSection('history')"><i class="ri-history-line"></i><span>ประวัติ</span></button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content where sections will be injected -->
+  <main>
+    <section id="dashboard" class="active"></section>
+    <section id="users"></section>
+    <section id="addDebt"></section>
+    <section id="payment"></section>
+    <section id="history"></section>
+  </main>
+
+  <!-- Load Firebase and application scripts as modules -->
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
