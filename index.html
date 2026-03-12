@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบเซ็นเงิน</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ระบบเซ็นเงิน</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard" onclick="showSection('dashboard')">หน้าหลัก</a></li>
+                <li><a href="#addUser" onclick="showSection('addUser')">เพิ่มผู้เซ็น</a></li>
+                <li><a href="#users" onclick="showSection('users')">รายชื่อผู้เซ็น</a></li>
+                <li><a href="#newDebt" onclick="showSection('newDebt')">เซ็นเงินใหม่</a></li>
+                <li><a href="#payment" onclick="showSection('payment')">ชำระเงิน</a></li>
+                <li><a href="#history" onclick="showSection('history')">ประวัติ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="active">
+            <h2>หน้าหลัก</h2>
+            <div class="card-container">
+                <div class="card" id="totalDebt">
+                    <h3>ยอดค้างทั้งหมด</h3>
+                    <p class="amount">0</p>
+                </div>
+                <div class="card" id="totalPaid">
+                    <h3>ยอดที่จ่ายแล้ว</h3>
+                    <p class="amount">0</p>
+                </div>
+                <div class="card" id="todayPaid">
+                    <h3>ยอดจ่ายวันนี้</h3>
+                    <p class="amount">0</p>
+                </div>
+                <div class="card" id="userCount">
+                    <h3>จำนวนผู้เซ็นเงิน</h3>
+                    <p class="amount">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add User Section -->
+        <section id="addUser">
+            <h2>เพิ่มผู้เซ็น</h2>
+            <form id="addUserForm" class="form">
+                <label>ชื่อ:
+                    <input type="text" id="userName" required>
+                </label>
+                <label>เบอร์โทร:
+                    <input type="text" id="userPhone">
+                </label>
+                <label>หมายเหตุ:
+                    <input type="text" id="userNote">
+                </label>
+                <button type="submit">เพิ่มผู้เซ็น</button>
+            </form>
+        </section>
+
+        <!-- Users List Section -->
+        <section id="users">
+            <h2>รายชื่อผู้เซ็น</h2>
+            <div id="usersTable"></div>
+        </section>
+
+        <!-- New Debt Section -->
+        <section id="newDebt">
+            <h2>เซ็นเงินใหม่</h2>
+            <form id="newDebtForm" class="form">
+                <label>ชื่อผู้เซ็น:
+                    <select id="debtUserId" required></select>
+                </label>
+                <label>รายการ:
+                    <input type="text" id="debtItem" required>
+                </label>
+                <label>จำนวนเงิน:
+                    <input type="number" id="debtAmount" min="0" required>
+                </label>
+                <label>วันที่:
+                    <input type="date" id="debtDate" required>
+                </label>
+                <button type="submit">บันทึก</button>
+            </form>
+        </section>
+
+        <!-- Payment Section -->
+        <section id="payment">
+            <h2>ชำระเงิน</h2>
+            <form id="paymentForm" class="form">
+                <label>ชื่อผู้เซ็น:
+                    <select id="paymentUserId" required></select>
+                </label>
+                <label>จำนวนเงินที่จ่าย:
+                    <input type="number" id="paymentAmount" min="0" required>
+                </label>
+                <label>วันที่:
+                    <input type="date" id="paymentDate" required>
+                </label>
+                <button type="submit">บันทึก</button>
+            </form>
+        </section>
+
+        <!-- History Section -->
+        <section id="history">
+            <h2>ประวัติการทำรายการ</h2>
+            <div id="historyTable"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 ระบบเซ็นเงิน</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
